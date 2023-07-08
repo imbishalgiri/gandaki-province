@@ -1,0 +1,31 @@
+@use "./global_styles/app";
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #0B1D41;
+    --primary-light: #314876;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.layout_spacing {
+    padding: 1.6rem;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

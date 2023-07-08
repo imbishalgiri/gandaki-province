@@ -1,0 +1,11 @@
+.navbar {
+    nav {
+        background-color: var(--primary);
+        height: 4rem;
+
+        div {
+            height: 100%;
+            min-height: unset;
+        }
+    }
+}

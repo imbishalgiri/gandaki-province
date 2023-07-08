@@ -1,0 +1,80 @@
+@mixin left-border {
+    border-left: 4px solid var(--primary);
+    padding-left: 1.6rem;
+
+    @media only screen and (max-width: 600px) {
+        padding-left: 1rem;
+        border-left-width: 3px;
+    }
+}
+
+.upper_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 9rem;
+    color: var(--primary);
+
+    &-right {
+        display: flex;
+        gap: 4rem;
+        min-height: 3.2rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+
+
+
+        svg {
+            font-size: 2rem;
+        }
+
+        .phone {
+            gap: 1.6rem;
+            @include left-border();
+
+            &:hover {
+                color: var(--primary-light);
+                border-color: var(--primary-light);
+            }
+        }
+
+        .email {
+            gap: 1.6rem;
+            @include left-border();
+
+            &:hover {
+                color: var(--primary-light);
+                border-color: var(--primary-light);
+            }
+        }
+    }
+}
+
+.navbar {
+    .nav_item {
+        font-size: 1.4rem;
+        text-transform: capitalize;
+        margin: 0 0.5rem;
+        border-radius: unset;
+
+        &:hover {
+            background-color: var(--primary-light);
+            height: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .upper_nav {
+        gap: 1rem;
+
+        &-right {
+            font-size: 1rem;
+            gap: 1rem;
+
+            svg {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
