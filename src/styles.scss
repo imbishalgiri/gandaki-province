@@ -10,6 +10,8 @@
 :root {
     --primary: #0B1D41;
     --primary-light: #314876;
+    --background-primary: #ebebeb4f;
+    --gray: #5f6165e8;
 }
 
 html {
@@ -32,8 +34,14 @@ body {
 
 .container {
     padding: 0 10rem;
+    max-width: 160rem;
+    margin: auto;
 }
 
 .section {
     padding: 15rem 0;
+}
+
+.MuiPaper-elevation {
+    position: absolute !important;
 }

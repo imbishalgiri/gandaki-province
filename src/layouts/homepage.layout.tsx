@@ -4,6 +4,7 @@ import ResponsiveAppBar from "../components/navbar/navbar";
 import { FaPhoneAlt, FaMailBulk } from "react-icons/fa";
 import "./layout.scss";
 import Logo from "./../../public/assets/images/logo.svg";
+import Footer from "../components/footer/footer";
 
 const HomeLayout = (): ReactElement => {
   return (
@@ -25,6 +26,7 @@ const HomeLayout = (): ReactElement => {
       </div>
       <ResponsiveAppBar />
       <Outlet />
+      <Footer />
     </div>
   );
 };

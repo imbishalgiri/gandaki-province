@@ -91,7 +91,7 @@
             position: relative;
 
             &:hover {
-                animation-name: shake;
+                animation-name: hexagonShake;
                 animation-duration: 10s;
                 animation-iteration-count: infinite;
                 animation-timing-function: linear;
@@ -117,7 +117,7 @@
 }
 
 
-@keyframes shake {
+@keyframes hexagonShake {
     0% {
         transform: translate(2px, 1px) rotate(0deg);
     }

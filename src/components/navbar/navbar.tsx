@@ -13,6 +13,7 @@ import { FaBars } from "react-icons/fa";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Logo from "./../../../public/assets/images/logo.svg";
+import { Menu, MenuItem } from "@mui/material";
 interface Props {
   /**
    * Injected by the documentation to work in an iframe.
@@ -30,11 +31,28 @@ const navItems = [
   "Maths",
   "Whatevers",
   "Testimonial",
+  "Districts",
 ];
+
+const districts = ["district-1", "district-2", "district-3", "district-4"];
 
 export default function ResponsiveAppBar(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const handleMenuClick = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    item: string
+  ) => {
+    if (item === "Districts") {
+      setAnchorEl(event.currentTarget);
+    }
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -51,7 +69,10 @@ export default function ResponsiveAppBar(props: Props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton
+              onClick={(e: any) => handleMenuClick(e, item)}
+              sx={{ textAlign: "center" }}
+            >
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -64,49 +85,74 @@ export default function ResponsiveAppBar(props: Props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box className="navbar" sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar className="center" component="nav" style={{ top: "unset" }}>
-        <Toolbar sx={{ alignSelf: { sm: "center", xs: "flex-start" } }}>
-          <IconButton
-            className="iconButton"
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+    <>
+      <Box className="navbar" sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar className="center" component="nav" style={{ top: "unset" }}>
+          <Toolbar sx={{ alignSelf: { sm: "center", xs: "flex-start" } }}>
+            <IconButton
+              className="iconButton"
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <FaBars />
+            </IconButton>
+            <Box
+              className="center"
+              sx={{ display: { xs: "none", sm: "flex" } }}
+            >
+              {navItems.map((item) => (
+                <Button
+                  onClick={(e: any) => handleMenuClick(e, item)}
+                  className="nav_item"
+                  key={item}
+                  sx={{ color: "#fff" }}
+                >
+                  {item}
+                </Button>
+              ))}
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Box component="nav">
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: "block", sm: "none" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
+            }}
           >
-            <FaBars />
-          </IconButton>
-          <Box className="center" sx={{ display: { xs: "none", sm: "flex" } }}>
-            {navItems.map((item) => (
-              <Button className="nav_item" key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
+            {drawer}
+          </Drawer>
+        </Box>
       </Box>
-    </Box>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+      >
+        {districts.map((item) => (
+          <MenuItem key={item} onClick={handleClose}>
+            {item}
+          </MenuItem>
+        ))}
+      </Menu>
+    </>
   );
 }

@@ -1,0 +1,61 @@
+.footer-wrapper {
+    background-color: #0B1D41;
+    height: 28rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 20rem;
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+}
+
+.footer-address,
+.footer-link,
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+}
+
+.address {
+    font-size: 1.4rem;
+    width: 23rem;
+    margin-top: 1.5rem;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.link svg {
+    width: 2.5rem;
+    height: 1.8rem
+}
+
+.contact svg {
+    width: 2.2rem;
+    height: 2rem;
+}
+
+.footer-divider {
+    width: 19.2rem;
+    border-bottom: #fff 2px solid;
+    margin-top: 1rem;
+}
+
+.contact-section,
+.link-wrapper {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
