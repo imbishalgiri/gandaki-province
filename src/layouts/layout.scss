@@ -1,6 +1,6 @@
 @mixin left-border {
-    border-left: 4px solid var(--primary);
-    padding-left: 1.6rem;
+    border-left: 3px solid var(--primary);
+    padding: 1rem 0 1rem 1.6rem;
 
     @media only screen and (max-width: 600px) {
         padding-left: 1rem;
@@ -51,6 +51,10 @@
 }
 
 .navbar {
+    nav {
+        position: unset;
+    }
+
     .nav_item {
         font-size: 1.4rem;
         text-transform: capitalize;
