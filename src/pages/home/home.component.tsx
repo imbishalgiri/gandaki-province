@@ -16,9 +16,9 @@ const HomeComponent: React.FC = (): JSX.Element => {
       {/* Notice section  */}
       <Notice />
       {/* Teams section  */}
-      {/* <Teams /> */}
+      <Teams />
 
-      <UserCard />
+      {/* <UserCard /> */}
       {/* -------------- (END) */}
     </React.Fragment>
   );
