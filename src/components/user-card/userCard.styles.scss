@@ -1,0 +1,45 @@
+.card_wrapper {
+    width: 27rem;
+    height: 32rem;
+    border: 2px solid var(--primary);
+    border-radius: 2rem 0;
+    box-shadow: 4px 4px 4px 0px rgba(11, 29, 65, 0.30);
+    padding: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .image_section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 13rem;
+            height: 18rem;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    .credentials {
+        text-align: center;
+
+        .name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding: 0.5rem;
+        }
+
+        .designation {
+            font-size: 1.4rem;
+            font-style: italic;
+            padding: 0.5rem;
+        }
+
+    }
+}
+
+.divider {
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+}

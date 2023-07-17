@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "./teams.styles.scss";
+import UserCard from "../../../../components/user-card/userCard.component";
 
 const Teams: React.FC = (): JSX.Element => {
   const slides = [];
@@ -10,12 +11,12 @@ const Teams: React.FC = (): JSX.Element => {
   for (let i = 0; i < 12; i++) {
     slides.push(
       <SwiperSlide key={`slide-${i}`} style={{ listStyle: "none" }}>
-        <div className="slide">
-          <h3>{i}</h3>
-        </div>
+        <UserCard />
       </SwiperSlide>
     );
   }
+
+  console.log("slides", slides);
 
   return (
     <Swiper
@@ -29,7 +30,6 @@ const Teams: React.FC = (): JSX.Element => {
       // autoplay
       // loop
       onReachEnd={() => {
-        console.log("reach end");
         const tmp = slides.unshift();
         slides.push(tmp);
       }}
