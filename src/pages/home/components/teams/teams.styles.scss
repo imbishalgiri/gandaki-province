@@ -14,3 +14,20 @@
     background: #364d79;
     overflow: hidden;
 }
+
+.teams_wrapper {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+
+    .swiper {
+        overflow-y: visible;
+
+        .swiper-pagination {
+            margin-bottom: -5rem;
+
+            .swiper-pagination-bullet-active {
+                background-color: var(--primary);
+            }
+        }
+    }
+}
