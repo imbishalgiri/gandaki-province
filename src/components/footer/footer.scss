@@ -1,12 +1,12 @@
 .footer-wrapper {
     background-color: #0B1D41;
-    height: 28rem;
+    min-height: 28rem;
     display: flex;
     justify-content: space-around;
     gap: 20rem;
     color: #fff;
-    padding: 1rem;
-    width: 100%;
+    max-width: 100vw;
+    flex-wrap: wrap;
 }
 
 .footer-address,

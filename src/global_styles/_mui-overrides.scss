@@ -9,3 +9,15 @@
         }
     }
 }
+
+
+
+.MuiList-root {
+    width: 15rem;
+
+    li {
+        font-size: 1.4rem;
+        color: var(--primary);
+        font-weight: 600;
+    }
+}

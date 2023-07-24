@@ -1,0 +1,12 @@
+.gallery_wrapper {
+    padding: 2rem 0;
+
+    img {
+        border: 0.5rem solid var(--primary);
+        border-radius: 0.4rem;
+    }
+
+    .react-photo-album--row {
+        gap: 1.5rem;
+    }
+}

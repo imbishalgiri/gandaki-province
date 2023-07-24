@@ -14,6 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Logo from "./../../../public/assets/images/logo.svg";
 import { Menu, MenuItem } from "@mui/material";
+import { useLocation, useNavigate } from "react-router-dom";
 interface Props {
   /**
    * Injected by the documentation to work in an iframe.
@@ -40,7 +41,8 @@ export default function ResponsiveAppBar(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
+  const navigate = useNavigate();
+  const location = useLocation();
   const handleMenuClick = (
     event: React.MouseEvent<HTMLButtonElement>,
     item: string
@@ -48,6 +50,7 @@ export default function ResponsiveAppBar(props: Props) {
     if (item === "Districts") {
       setAnchorEl(event.currentTarget);
     }
+    navigate(`/${item.toLowerCase()}`);
   };
 
   const handleClose = () => {
@@ -56,6 +59,14 @@ export default function ResponsiveAppBar(props: Props) {
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+
+  const getClassName = (item: string) => {
+    if (location.pathname === "/" && item.toLowerCase() === "home")
+      return "nav_item-active";
+    if (location.pathname === `/${item.toLowerCase()}`) {
+      return "nav_item-active";
+    }
   };
 
   const drawer = (
@@ -70,6 +81,7 @@ export default function ResponsiveAppBar(props: Props) {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton
+              className={getClassName(item)}
               onClick={(e: any) => handleMenuClick(e, item)}
               sx={{ textAlign: "center" }}
             >
@@ -107,7 +119,7 @@ export default function ResponsiveAppBar(props: Props) {
               {navItems.map((item) => (
                 <Button
                   onClick={(e: any) => handleMenuClick(e, item)}
-                  className="nav_item"
+                  className={`nav_item ${getClassName(item)}`}
                   key={item}
                   sx={{ color: "#fff" }}
                 >
